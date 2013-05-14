@@ -1,6 +1,5 @@
 <?php
 set_time_limit(0);
-set_time_limit(0);
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
 echo "|  Mass Gamertag Checker by Furry~  |\n";
 echo "| Usage: php gamertag.php InsertWordListHere  |\n";
@@ -19,7 +18,7 @@ if(isset($argv[1])){
         $result = curl_exec($ch);
         $json = json_decode($result, true);
         print_r($json);
-        if($json['Stat'] !== 'fail'){
+        if($json['Stat'] === 'fail'){
             echo "Gamertag ".$gamertag." is taken!\n";
             $fh = fopen('available.txt', 'a') or die("can't open file");
             fwrite($fh, $pheed."\n");
