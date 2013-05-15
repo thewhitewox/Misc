@@ -17,12 +17,13 @@ if(isset($argv[1])){
         curl_setopt($ch, CURLOPT_TIMEOUT, 8);
         $result = curl_exec($ch);
         $json = json_decode($result, true);
+        print_r($json);
         if($json['Stat'] === 'fail'){
-            echo "Gamertag ".$gamertag." is taken!\n";
+            echo "Gamertag ".$gamertag." is available!\n";
             $fh = fopen('available.txt', 'a') or die("can't open file");
             fwrite($fh, $pheed."\n");
         } else {
-            echo "Gamertag ".$gamertag." is available!\n";
+            echo "Gamertag ".$gamertag." is taken!\n";
         }
     }
 }
