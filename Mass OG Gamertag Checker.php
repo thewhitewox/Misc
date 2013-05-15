@@ -1,7 +1,7 @@
 <?php
 set_time_limit(0);
 echo "_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n";
-echo "|  Mass Gamertag Checker by Furry~  |\n";
+echo "|       Mass Gamertag Checker by Furry~       |\n";
 echo "| Usage: php gamertag.php InsertWordListHere  |\n";
 echo "-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-\n";
 if(isset($argv[1])){
@@ -17,7 +17,6 @@ if(isset($argv[1])){
         curl_setopt($ch, CURLOPT_TIMEOUT, 8);
         $result = curl_exec($ch);
         $json = json_decode($result, true);
-        print_r($json);
         if($json['Stat'] === 'fail'){
             echo "Gamertag ".$gamertag." is taken!\n";
             $fh = fopen('available.txt', 'a') or die("can't open file");
